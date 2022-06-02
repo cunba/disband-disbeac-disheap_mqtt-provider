@@ -9,10 +9,10 @@ class PairDisbeacInformationPayload(Entity):
     def __init__(
             self,
             userId: str,
-            disbandId: str,
+            disbandMac: str,
             sentAt: float):
         self.userId = userId
-        self.disbandId = disbandId
+        self.disbandMac = disbandMac
         self.sentAt = sentAt
 
 

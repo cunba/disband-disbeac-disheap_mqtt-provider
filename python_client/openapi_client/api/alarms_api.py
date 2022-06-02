@@ -13,8 +13,8 @@ from ast import List
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
-from openapi_client.model_utils import (  # noqa: F401
+from python_client.openapi_client.api_client import ApiClient, Endpoint as _Endpoint
+from python_client.openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -23,9 +23,9 @@ from openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from openapi_client.model.alarm import Alarm
-from openapi_client.model.alarm_dto import AlarmDTO
-from openapi_client.model.error_response import ErrorResponse
+from python_client.openapi_client.model.alarm import Alarm
+from python_client.openapi_client.model.alarm_dto import AlarmDTO
+from python_client.openapi_client.model.error_response import ErrorResponse
 
 
 class AlarmsApi(object):
@@ -503,7 +503,7 @@ class AlarmsApi(object):
         self,
         disband_id,
         **kwargs
-    ) -> List[Alarm]:
+    ):
         """Delete alarms by disband ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -587,7 +587,7 @@ class AlarmsApi(object):
         max_date,
         disband_id,
         **kwargs
-    ) -> List[Alarm]:
+    ):
         """Get alarms by date between and disband ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -675,7 +675,7 @@ class AlarmsApi(object):
         self,
         disband_id,
         **kwargs
-    ) -> List[Alarm]:
+    ):
         """Get alarms by disband ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an

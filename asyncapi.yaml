@@ -39,11 +39,11 @@ servers:
           - '80'
 defaultContentType: application/json
 channels:
-  disband/action/{disbandId}/ambient-noise:
+  disband/action/{disbandMac}/ambient-noise:
     description: The topic on which measured values may be produced and consumed.
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     subscribe:
       summary: Inform about environmental conditions of a particular band.
       operationId: receiveDisbandAmbientNoise
@@ -51,11 +51,11 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandId}/heart-rate:
+  disband/action/{disbandMac}/heart-rate:
     description: The topic on which measured values may be produced and consumed.
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     subscribe:
       summary: Inform about environmental conditions of a particular band.
       operationId: receiveDisbandHeartRate
@@ -63,11 +63,11 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandId}/humidity:
+  disband/action/{disbandMac}/humidity:
     description: The topic on which measured values may be produced and consumed.
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     subscribe:
       summary: Inform about environmental conditions of a particular band.
       operationId: receiveDisbandHumidity
@@ -75,11 +75,11 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandId}/lightning:
+  disband/action/{disbandMac}/lightning:
     description: The topic on which measured values may be produced and consumed.
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     subscribe:
       summary: Inform about environmental conditions of a particular band.
       operationId: receiveDisbandLightning
@@ -87,11 +87,11 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandId}/oxygen:
+  disband/action/{disbandMac}/oxygen:
     description: The topic on which measured values may be produced and consumed.
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     subscribe:
       summary: Inform about environmental conditions of a particular band.
       operationId: receiveDisbandOxygen
@@ -99,11 +99,11 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandId}/pressure:
+  disband/action/{disbandMac}/pressure:
     description: The topic on which measured values may be produced and consumed.
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     subscribe:
       summary: Inform about environmental conditions of a particular band.
       operationId: receiveDisbandPressure
@@ -111,11 +111,11 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandId}/temperature:
+  disband/action/{disbandMac}/temperature:
     description: The topic on which measured values may be produced and consumed.
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     subscribe:
       summary: Inform about environmental conditions of a particular band.
       operationId: receiveDisbandTemperature
@@ -159,60 +159,60 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbeacLocationInformation'
-  disband/event/{disbandId}/sync:
+  disband/event/{disbandMac}/sync:
     description: The topic on which sync the disband
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     publish:
       operationId: sync
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandSyncInformation'
-  disband/event/{disbandId}/sync/alarm:
+  disband/event/{disbandMac}/sync/alarm:
     description: The topic on which sync the new alarm into the disband
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     publish:
       operationId: syncAlarm
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandAlarmInformation'
-  disband/event/{disbandId}/sync/mesuredTimes:
+  disband/event/{disbandMac}/sync/mesuredTimes:
     description: >-
       The topic on which sync the new configuration about the mesured times into
       a particular disband
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     publish:
       operationId: syncMesuredTimes
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMesuredTimesInformation'
-  disbeac/event/{disbeacId}/active/{disbandId}:
+  disbeac/event/{disbeacId}/active/{disbandMac}:
     description: >-
       The topic where inform if a particular disbeac is active to a particular
       disband
     parameters:
       disbeacId:
         $ref: '#/components/parameters/disbeacId'
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     publish:
       operationId: disbeacActive
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbeacActive'
-  disband/event/{disbandId}/vibrate:
+  disband/event/{disbandMac}/vibrate:
     parameters:
-      disbandId:
-        $ref: '#/components/parameters/disbandId'
+      disbandMac:
+        $ref: '#/components/parameters/disbandMac'
     publish:
       operationId: disbandVibrate
       traits:
@@ -322,7 +322,7 @@ components:
       properties:
         userId:
           type: string
-        disbandId:
+        disbandMac:
           type: string
         sentAt:
           $ref: '#/components/schemas/sentAt'
@@ -366,7 +366,7 @@ components:
       format: int64
       description: Date and time when the message was sent.
   parameters:
-    disbandId:
+    disbandMac:
       description: The ID of the disband.
       schema:
         type: string

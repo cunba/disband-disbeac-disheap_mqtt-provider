@@ -18,6 +18,8 @@ from models.sent_at import SentAt
 from python_client import Configuration
 from repositories import LoginRepository
 from actions import DisbandActionDisbandIdAmbientNoise
+from connect_raspberry_tilebox import ConnectRaspberryTilebox
+
 
 backend_configuration = Configuration(host = "http://63.33.86.240:8080")
 credentials_email = 'ire.cunba@gmail.com'
@@ -121,6 +123,8 @@ def main():
 
     login(credentials_email, credentials_password)
     print(backend_configuration.access_token)
+    connection_tilebox = ConnectRaspberryTilebox()
+    connection_tilebox.bluetooth_connection()
 
     # Creating the messaging for publications
     disbandEventDisbandIdSync = Messaging(config)
@@ -155,10 +159,12 @@ def main():
     # payloadJson = payload.to_json()
 
     while (True):
-        disbandEventDisbandIdVibrateTopic='disband/action/{disbandId}/vibrate'
-        disbandEventDisbandIdVibrateTopic.format(disbandId = str(4))
-        disbandEventDisbandIdVibrate.publish('disband/event/{disbandId}/vibrate', True)
-        time.sleep(120)
+        connection_tilebox.get_feature()
+        disbandEventDisbandIdVibrateTopic='disband/action/{disbandMac}/vibrate'
+        disbandEventDisbandIdVibrateTopic.format(disbandMac = str(4))
+        disbandEventDisbandIdVibrate.publish(disbandEventDisbandIdVibrateTopic, True)
+        print()
+        time.sleep(1)
 
 if __name__ == '__main__':
     main()

@@ -12,8 +12,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
-from openapi_client.model_utils import (  # noqa: F401
+from python_client.openapi_client.api_client import ApiClient, Endpoint as _Endpoint
+from python_client.openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -22,12 +22,12 @@ from openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from openapi_client.model.error_response import ErrorResponse
-from openapi_client.model.handled_response import HandledResponse
-from openapi_client.model.password_change_dto import PasswordChangeDTO
-from openapi_client.model.update_user_dto import UpdateUserDTO
-from openapi_client.model.user_dto import UserDTO
-from openapi_client.model.user_model import UserModel
+from python_client.openapi_client.model.error_response import ErrorResponse
+from python_client.openapi_client.model.handled_response import HandledResponse
+from python_client.openapi_client.model.password_change_dto import PasswordChangeDTO
+from python_client.openapi_client.model.update_user_dto import UpdateUserDTO
+from python_client.openapi_client.model.user_dto import UserDTO
+from python_client.openapi_client.model.user_model import UserModel
 
 
 class UsersApi(object):
