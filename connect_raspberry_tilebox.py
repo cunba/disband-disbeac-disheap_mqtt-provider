@@ -81,7 +81,7 @@ SCANNING_TIME_s = 5
 # Number of notifications to get before disabling them.
 NOTIFICATIONS = 1
 TILEBOX_MAC = 'C0:50:08:32:26:56'
-measureDTO = MeasureDTO()
+measureDTO = MeasureDTO(0)
 
 # FUNCTIONS
 
