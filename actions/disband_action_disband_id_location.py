@@ -2,11 +2,11 @@ import logging
 from models.messaging import Messaging
 
 from payloads.disband_measure_information_payload import DisbandMeasureInformationPayload
-from repositories import AmbientNoiseRepository
-from python_client import AmbientNoise
-from python_client import MeasureDTO
+from repositories import LocationRepository
+from python_client import LocationDisbeac
+from python_client import LocationDisbeacDTO
 
-class DisbandActionDisbandIdAmbientNoise:
+class DisbandActionDisbandIdLocation:
 
     def __init__(self, config, topic):
         self.messenger = Messaging(config, topic, self.action)
@@ -22,5 +22,5 @@ class DisbandActionDisbandIdAmbientNoise:
         logging.info('Received message: ' + str(disbandMeasureInformationPayload))
 
     def save_data(self, disbandId, payload):
-        measureDTO = MeasureDTO(payload.get('data'), payload.get('date'), disbandId)
-        AmbientNoiseRepository.save(measureDTO)
+        locationDTO = LocationDisbeacDTO(payload.get('data'), payload.get('date'), disbandId)
+        LocationRepository.save(locationDTO)

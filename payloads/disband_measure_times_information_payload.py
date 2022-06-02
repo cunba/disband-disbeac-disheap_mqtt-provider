@@ -4,7 +4,7 @@ from models.entity import Entity
 
 
 
-class DisbandMesuredTimesInformationPayload(Entity):
+class DisbandMeasureTimesInformationPayload(Entity):
 
     class Sensors(Entity):
 

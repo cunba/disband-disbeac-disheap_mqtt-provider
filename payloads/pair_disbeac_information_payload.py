@@ -8,11 +8,13 @@ class PairDisbeacInformationPayload(Entity):
 
     def __init__(
             self,
+            model: str,
+            version: str,
             userId: str,
-            disbandMac: str,
             sentAt: float):
+        self.model = model
+        self.version = version
         self.userId = userId
-        self.disbandMac = disbandMac
         self.sentAt = sentAt
 
 

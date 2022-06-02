@@ -39,7 +39,7 @@ servers:
           - '80'
 defaultContentType: application/json
 channels:
-  disband/action/{disbandMac}/ambient-noise:
+  disbands/action/{disbandMac}/ambient-noise:
     description: The topic on which measured values may be produced and consumed.
     parameters:
       disbandMac:
@@ -51,7 +51,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandMac}/heart-rate:
+  disbands/action/{disbandMac}/heart-rate:
     description: The topic on which measured values may be produced and consumed.
     parameters:
       disbandMac:
@@ -63,7 +63,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandMac}/humidity:
+  disbands/action/{disbandMac}/humidity:
     description: The topic on which measured values may be produced and consumed.
     parameters:
       disbandMac:
@@ -75,7 +75,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandMac}/lightning:
+  disbands/action/{disbandMac}/lightning:
     description: The topic on which measured values may be produced and consumed.
     parameters:
       disbandMac:
@@ -87,7 +87,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandMac}/oxygen:
+  disbands/action/{disbandMac}/oxygen:
     description: The topic on which measured values may be produced and consumed.
     parameters:
       disbandMac:
@@ -99,7 +99,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandMac}/pressure:
+  disbands/action/{disbandMac}/pressure:
     description: The topic on which measured values may be produced and consumed.
     parameters:
       disbandMac:
@@ -111,7 +111,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasuredInformation'
-  disband/action/{disbandMac}/temperature:
+  disbands/action/{disbandMac}/temperature:
     description: The topic on which measured values may be produced and consumed.
     parameters:
       disbandMac:
@@ -135,7 +135,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/pairDisbandInformation'
-  disbeac/action/{userId}/pair:
+  disbeacs/action/{userId}/pair:
     description: The topic on which pair the disbeac
     parameters:
       userId:
@@ -147,7 +147,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/pairDisbeacInformation'
-  disbeac/action/{disbeacId}/location:
+  disbeacs/action/{disbeacId}/location:
     description: The topic on which location may be produced and consumed
     parameters:
       disbeacId:
@@ -159,7 +159,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbeacLocationInformation'
-  disband/event/{disbandMac}/sync:
+  disbands/event/{disbandMac}/sync:
     description: The topic on which sync the disband
     parameters:
       disbandMac:
@@ -170,7 +170,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandSyncInformation'
-  disband/event/{disbandMac}/sync/alarm:
+  disbands/event/{disbandMac}/sync/alarm:
     description: The topic on which sync the new alarm into the disband
     parameters:
       disbandMac:
@@ -181,20 +181,20 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandAlarmInformation'
-  disband/event/{disbandMac}/sync/mesuredTimes:
+  disbands/event/{disbandMac}/sync/measureTimes:
     description: >-
-      The topic on which sync the new configuration about the mesured times into
+      The topic on which sync the new configuration about the measure times into
       a particular disband
     parameters:
       disbandMac:
         $ref: '#/components/parameters/disbandMac'
     publish:
-      operationId: syncMesuredTimes
+      operationId: syncMeasureTimes
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
-        $ref: '#/components/messages/disbandMesuredTimesInformation'
-  disbeac/event/{disbeacId}/active/{disbandMac}:
+        $ref: '#/components/messages/disbandMeasureTimesInformation'
+  disbeacs/event/{disbeacId}/active/{disbandMac}:
     description: >-
       The topic where inform if a particular disbeac is active to a particular
       disband
@@ -209,7 +209,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbeacActive'
-  disband/event/{disbandMac}/vibrate:
+  disbands/event/{disbandMac}/vibrate:
     parameters:
       disbandMac:
         $ref: '#/components/parameters/disbandMac'
@@ -229,7 +229,7 @@ components:
       traits:
         - $ref: '#/components/messageTraits/commonHeaders'
       payload:
-        $ref: '#/components/schemas/disbandMesuredInformationPayload'
+        $ref: '#/components/schemas/disbandMeasureInformationPayload'
     pairDisbandInformation:
       name: pairDisbandInformation
       title: Pair disband information
@@ -275,15 +275,15 @@ components:
         - $ref: '#/components/messageTraits/commonHeaders'
       payload:
         $ref: '#/components/schemas/disbandAlarmInformationPayload'
-    disbandMesuredTimesInformation:
-      name: disbandMesuredTimeInformation
-      title: Disband mesured time information
-      summary: Inform about the new mesured time of a particular disband
+    disbandMeasureTimesInformation:
+      name: disbandMeasureTimeInformation
+      title: Disband measure time information
+      summary: Inform about the new measure time of a particular disband
       contentType: application/json
       traits:
         - $ref: '#/components/messageTraits/commonHeaders'
       payload:
-        $ref: '#/components/schemas/disbandMesuredTimesInformationPayload'
+        $ref: '#/components/schemas/disbandMeasureTimesInformationPayload'
     disbeacActive:
       name: disbeacActive
       title: Disbeac is active
@@ -303,7 +303,7 @@ components:
       payload:
         type: boolean
   schemas:
-    disbandMesuredInformationPayload:
+    disbandMeasureInformationPayload:
       type: object
       properties:
         data:
@@ -352,7 +352,7 @@ components:
           format: int64
         sentAt:
           $ref: '#/components/schemas/sentAt'
-    disbandMesuredTimesInformationPayload:
+    disbandMeasureTimesInformationPayload:
       type: object
       properties:
         sensors:

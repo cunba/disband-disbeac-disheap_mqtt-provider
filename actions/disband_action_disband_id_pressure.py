@@ -2,11 +2,11 @@ import logging
 from models.messaging import Messaging
 
 from payloads.disband_measure_information_payload import DisbandMeasureInformationPayload
-from repositories import AmbientNoiseRepository
-from python_client import AmbientNoise
+from repositories import PressureRepository
+from python_client import Pressure
 from python_client import MeasureDTO
 
-class DisbandActionDisbandIdAmbientNoise:
+class DisbandActionDisbandIdPressure:
 
     def __init__(self, config, topic):
         self.messenger = Messaging(config, topic, self.action)
@@ -23,4 +23,4 @@ class DisbandActionDisbandIdAmbientNoise:
 
     def save_data(self, disbandId, payload):
         measureDTO = MeasureDTO(payload.get('data'), payload.get('date'), disbandId)
-        AmbientNoiseRepository.save(measureDTO)
+        PressureRepository.save(measureDTO)

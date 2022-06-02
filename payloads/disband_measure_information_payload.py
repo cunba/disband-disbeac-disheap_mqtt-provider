@@ -4,7 +4,7 @@ from models.entity import Entity
 
 
 
-class DisbandMesuredInformationPayload(Entity):
+class DisbandMeasureInformationPayload(Entity):
 
     def __init__(
             self,
