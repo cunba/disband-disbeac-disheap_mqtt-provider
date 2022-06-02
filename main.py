@@ -15,8 +15,9 @@ from payloads.disband_mesured_times_information_payload import DisbandMesuredTim
 from models.sent_at import SentAt
 
 
-from python_client.openapi_client.configuration import Configuration
-from repositories.login_repository import LoginRepository
+from python_client import Configuration
+from repositories import LoginRepository
+from actions import DisbandActionDisbandIdAmbientNoise
 
 backend_configuration = Configuration(host = "http://63.33.86.240:8080")
 credentials_email = 'ire.cunba@gmail.com'

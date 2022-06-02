@@ -1,0 +1,10 @@
+
+from .ambient_noise_repository import AmbientNoiseRepository
+from .heart_rate_repository import HeartRateRepository
+from .humidity_repository import HumidityRepository
+from .lightning_repository import LightningRepository
+from .location_repository import LocationRepository
+from .login_repository import LoginRepository
+from .oxygen_repository import OxygenRepository
+from .pressure_repository import PressureRepository
+from .temperature_repository import TemperatureRepository

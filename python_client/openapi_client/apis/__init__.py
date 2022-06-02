@@ -14,16 +14,16 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from api.service.alarms_api import AlarmsApi
-from api.service.ambient_noises_api import AmbientNoisesApi
-from api.service.disbands_api import DisbandsApi
-from api.service.disbeacs_api import DisbeacsApi
-from api.service.heart_rate_api import HeartRateApi
-from api.service.humidity_api import HumidityApi
-from api.service.lightnings_api import LightningsApi
-from api.service.locations_disbeacs_api import LocationsDisbeacsApi
-from api.service.login_api import LoginApi
-from api.service.oxygen_api import OxygenApi
-from api.service.pressure_api import PressureApi
-from api.service.temperatures_api import TemperaturesApi
-from api.service.users_api import UsersApi
+from python_client.openapi_client.api.alarms_api import AlarmsApi
+from python_client.openapi_client.api.ambient_noises_api import AmbientNoisesApi
+from python_client.openapi_client.api.disbands_api import DisbandsApi
+from python_client.openapi_client.api.disbeacs_api import DisbeacsApi
+from python_client.openapi_client.api.heart_rate_api import HeartRateApi
+from python_client.openapi_client.api.humidity_api import HumidityApi
+from python_client.openapi_client.api.lightnings_api import LightningsApi
+from python_client.openapi_client.api.locations_disbeacs_api import LocationsDisbeacsApi
+from python_client.openapi_client.api.login_api import LoginApi
+from python_client.openapi_client.api.oxygen_api import OxygenApi
+from python_client.openapi_client.api.pressure_api import PressureApi
+from python_client.openapi_client.api.temperatures_api import TemperaturesApi
+from python_client.openapi_client.api.users_api import UsersApi
