@@ -40,7 +40,7 @@ servers:
 defaultContentType: application/json
 channels:
   disbands/action/{disbandMac}/ambient-noise:
-    description: The topic on which measured values may be produced and consumed.
+    description: The topic on which measure values may be produced and consumed.
     parameters:
       disbandMac:
         $ref: '#/components/parameters/disbandMac'
@@ -50,9 +50,9 @@ channels:
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
-        $ref: '#/components/messages/disbandMeasuredInformation'
+        $ref: '#/components/messages/disbandMeasureInformation'
   disbands/action/{disbandMac}/heart-rate:
-    description: The topic on which measured values may be produced and consumed.
+    description: The topic on which measure values may be produced and consumed.
     parameters:
       disbandMac:
         $ref: '#/components/parameters/disbandMac'
@@ -62,9 +62,9 @@ channels:
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
-        $ref: '#/components/messages/disbandMeasuredInformation'
+        $ref: '#/components/messages/disbandMeasureInformation'
   disbands/action/{disbandMac}/humidity:
-    description: The topic on which measured values may be produced and consumed.
+    description: The topic on which measure values may be produced and consumed.
     parameters:
       disbandMac:
         $ref: '#/components/parameters/disbandMac'
@@ -74,9 +74,9 @@ channels:
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
-        $ref: '#/components/messages/disbandMeasuredInformation'
+        $ref: '#/components/messages/disbandMeasureInformation'
   disbands/action/{disbandMac}/lightning:
-    description: The topic on which measured values may be produced and consumed.
+    description: The topic on which measure values may be produced and consumed.
     parameters:
       disbandMac:
         $ref: '#/components/parameters/disbandMac'
@@ -86,9 +86,9 @@ channels:
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
-        $ref: '#/components/messages/disbandMeasuredInformation'
+        $ref: '#/components/messages/disbandLightningInformation'
   disbands/action/{disbandMac}/oxygen:
-    description: The topic on which measured values may be produced and consumed.
+    description: The topic on which measure values may be produced and consumed.
     parameters:
       disbandMac:
         $ref: '#/components/parameters/disbandMac'
@@ -98,9 +98,9 @@ channels:
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
-        $ref: '#/components/messages/disbandMeasuredInformation'
+        $ref: '#/components/messages/disbandMeasureInformation'
   disbands/action/{disbandMac}/pressure:
-    description: The topic on which measured values may be produced and consumed.
+    description: The topic on which measure values may be produced and consumed.
     parameters:
       disbandMac:
         $ref: '#/components/parameters/disbandMac'
@@ -110,9 +110,9 @@ channels:
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
-        $ref: '#/components/messages/disbandMeasuredInformation'
+        $ref: '#/components/messages/disbandMeasureInformation'
   disbands/action/{disbandMac}/temperature:
-    description: The topic on which measured values may be produced and consumed.
+    description: The topic on which measure values may be produced and consumed.
     parameters:
       disbandMac:
         $ref: '#/components/parameters/disbandMac'
@@ -122,7 +122,7 @@ channels:
       traits:
         - $ref: '#/components/operationTraits/mqtt'
       message:
-        $ref: '#/components/messages/disbandMeasuredInformation'
+        $ref: '#/components/messages/disbandMeasureInformation'
   disbands/action/{userId}/pair:
     description: The topic on which pair the band
     parameters:
@@ -147,11 +147,11 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/pairDisbeacInformation'
-  disbeacs/action/{disbeacId}/location:
+  disbeacs/action/{disbeacMac}/location:
     description: The topic on which location may be produced and consumed
     parameters:
-      disbeacId:
-        $ref: '#/components/parameters/disbeacId'
+      disbeacMac:
+        $ref: '#/components/parameters/disbeacMac'
     subscribe:
       summary: Inform about the location of the disbeac
       operationId: receivedDisbeacLocation
@@ -181,7 +181,7 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandAlarmInformation'
-  disbands/event/{disbandMac}/sync/measureTimes:
+  disbands/event/{disbandMac}/sync/measure-times:
     description: >-
       The topic on which sync the new configuration about the measure times into
       a particular disband
@@ -194,13 +194,13 @@ channels:
         - $ref: '#/components/operationTraits/mqtt'
       message:
         $ref: '#/components/messages/disbandMeasureTimesInformation'
-  disbeacs/event/{disbeacId}/active/{disbandMac}:
+  disbeacs/event/{disbeacMac}/active/{disbandMac}:
     description: >-
       The topic where inform if a particular disbeac is active to a particular
       disband
     parameters:
-      disbeacId:
-        $ref: '#/components/parameters/disbeacId'
+      disbeacMac:
+        $ref: '#/components/parameters/disbeacMac'
       disbandMac:
         $ref: '#/components/parameters/disbandMac'
     publish:
@@ -221,15 +221,24 @@ channels:
         $ref: '#/components/messages/disbandVibrate'
 components:
   messages:
-    disbandMeasuredInformation:
-      name: disbandMeasuredInformation
-      title: Disband measured information
+    disbandMeasureInformation:
+      name: disbandMeasureInformation
+      title: Disband measure information
       summary: Inform about environmental band conditions of a particular band.
       contentType: application/json
       traits:
         - $ref: '#/components/messageTraits/commonHeaders'
       payload:
         $ref: '#/components/schemas/disbandMeasureInformationPayload'
+    disbandLightningInformation:
+      name: disbandLightningInformation
+      title: Disband lightning information
+      summary: Inform about environmental band conditions of a particular band.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/commonHeaders'
+      payload:
+        $ref: '#/components/schemas/disbandLightningInformationPayload'
     pairDisbandInformation:
       name: pairDisbandInformation
       title: Pair disband information
@@ -310,9 +319,26 @@ components:
           type: number
         sentAt:
           $ref: '#/components/schemas/sentAt'
+    disbandLightningInformationPayload:
+      type: object
+      properties:
+        lightning:
+          type: number
+        redLightning:
+          type: number
+        greenLightning:
+          type: number
+        blueLightning:
+          type: number
+        sentAt:
+          $ref: '#/components/schemas/sentAt'
     pairDisbandInformationPayload:
       type: object
       properties:
+        model:
+          type: string
+        version:
+          type: string
         userId:
           type: string
         sentAt:
@@ -320,9 +346,11 @@ components:
     pairDisbeacInformationPayload:
       type: object
       properties:
-        userId:
+        model:
           type: string
-        disbandMac:
+        version:
+          type: string
+        userId:
           type: string
         sentAt:
           $ref: '#/components/schemas/sentAt'
@@ -350,6 +378,10 @@ components:
         date:
           type: number
           format: int64
+        isRepetition:
+          type: boolean
+        repetitionWeekDays:
+          type: string
         sentAt:
           $ref: '#/components/schemas/sentAt'
     disbandMeasureTimesInformationPayload:
@@ -370,7 +402,7 @@ components:
       description: The ID of the disband.
       schema:
         type: string
-    disbeacId:
+    disbeacMac:
       description: The ID of the disbeac.
       schema:
         type: string
