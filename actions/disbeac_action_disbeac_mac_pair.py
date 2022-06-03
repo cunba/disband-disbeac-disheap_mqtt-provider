@@ -1,7 +1,7 @@
 import logging
 from models.messaging import Messaging
 
-from repositories import HumidityRepository
+from repositories import DisbeacRepository
 from python_client import DisbeacDTO
 from payloads.pair_disbeac_information_payload import PairDisbeacInformationPayload
 
@@ -24,4 +24,4 @@ class DisbeacActionDisbeacMacPair:
 
     def save(self, DisbeacMac, payload):
         disbeacDTO = DisbeacDTO(payload.get('model'), payload.get('version'), DisbeacMac)
-        HumidityRepository.save(disbeacDTO)
+        DisbeacRepository.save(disbeacDTO)

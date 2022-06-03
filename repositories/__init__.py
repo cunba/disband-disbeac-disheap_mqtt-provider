@@ -8,3 +8,5 @@ from .login_repository import LoginRepository
 from .oxygen_repository import OxygenRepository
 from .pressure_repository import PressureRepository
 from .temperature_repository import TemperatureRepository
+from .disband_repository import DisbandRepository
+from .disbeac_repository import DisbeacRepository

@@ -1,7 +1,7 @@
 import logging
 from models.messaging import Messaging
 
-from repositories import HumidityRepository
+from repositories import DisbandRepository
 from python_client import DisbandDTO
 from payloads.pair_disband_information_payload import PairDisbandInformationPayload
 
@@ -24,4 +24,4 @@ class DisbandActionDisbandMacPair:
 
     def save(self, disbandMac, payload):
         disbandDTO = DisbandDTO(payload.get('model'), payload.get('version'), disbandMac)
-        HumidityRepository.save(disbandDTO)
+        DisbandRepository.save(disbandDTO)
