@@ -55,54 +55,71 @@ def main():
     topic = 'disbands/event/{disbandMac}/sync'
     topicFormat = topic.format(disbandMac = DISBAND_MAC)
     disband_event_sync = DisbandEventSync(config, topicFormat)
+    print('Connected to publication topic: ', topicFormat)
 
     topic = 'disbands/event/{disbandMac}/sync/alarm'
     topicFormat = topic.format(disbandMac = DISBAND_MAC)
-    disband_event_sync = DisbandEventSyncAlarm(config, topic)
+    disband_event_sync = DisbandEventSyncAlarm(config, topicFormat)
+    print('Connected to publication topic: ', topicFormat)
 
     topic = 'disbands/event/{disbandMac}/sync/measure-times'
     topicFormat = topic.format(disbandMac = DISBAND_MAC)
     disband_event_sync = DisbandEventSyncMeasureTimes(config, topicFormat)
+    print('Connected to publication topic: ', topicFormat)
 
     topic = 'disbeacs/event/{disbeacMac}/active/{disbandMac}'
-    topicFormat = topic.format(disbandMac = DISBAND_MAC)
-    disband_event_sync = DisbeacEventActive(config, topic)
+    topicFormat = topic.format(disbeacMac = '', disbandMac = DISBAND_MAC)
+    disband_event_sync = DisbeacEventActive(config, topicFormat)
+    print('Connected to publication topic: ', topicFormat)
 
     topic = 'disbands/event/{disbandMac}/vibrate'
     topicFormat = topic.format(disbandMac = DISBAND_MAC)
-    disband_event_sync = DisbandEventVibrate(config, topic)
+    disband_event_sync = DisbandEventVibrate(config, topicFormat)
+    print('Connected to publication topic: ', topicFormat)
 
     # Subscribing to the topics
     
-    topic = ActionTopics.DISBAND_ACTION_AMBIENT_NOISE
+    topic = str(ActionTopics.DISBAND_ACTION_AMBIENT_NOISE)
     DisbandActionDisbandMacAmbientNoise(config, topic)
+    print('Subscribed to topic: ', topic)
 
-    topic = ActionTopics.DISBAND_ACTION_HEART_RATE
+    topic = str(ActionTopics.DISBAND_ACTION_HEART_RATE)
     DisbandActionDisbandMacHeartRate(config, topic)
+    print('Subscribed to topic: ', topic)
 
-    topic = ActionTopics.DISBAND_ACTION_HUMIDITY
+    topic = str(ActionTopics.DISBAND_ACTION_HUMIDITY)
     DisbandActionDisbandMacHumidity(config, topic)
+    print('Subscribed to topic: ', topic)
 
-    topic = ActionTopics.DISBAND_ACTION_LIGHTNING
+    topic = str(ActionTopics.DISBAND_ACTION_LIGHTNING)
     DisbandActionDisbandMacLightning(config, topic)
+    print('Subscribed to topic: ', topic)
 
-    topic = ActionTopics.DISBAND_ACTION_OXYGEN
+    topic = str(ActionTopics.DISBAND_ACTION_OXYGEN)
     DisbandActionDisbandMacOxygen(config, topic)
+    print('Subscribed to topic: ', topic)
 
-    topic = ActionTopics.DISBAND_ACTION_PRESSURE
+    topic = str(ActionTopics.DISBAND_ACTION_PRESSURE)
     DisbandActionDisbandMacPressure(config, topic)
+    print('Subscribed to topic: ', topic)
 
-    topic = ActionTopics.DISBAND_ACTION_TEMPERATURE
+    topic = str(ActionTopics.DISBAND_ACTION_TEMPERATURE)
     DisbandActionDisbandMacTemperature(config, topic)
+    print('Subscribed to topic: ', topic)
 
-    topic = ActionTopics.DISBAND_ACTION_PAIR
+    topic = str(ActionTopics.DISBAND_ACTION_PAIR)
     DisbandActionUserIdPair(config, topic)
+    print('Subscribed to topic: ', topic)
 
-    topic = ActionTopics.DISBEAC_ACTION_LOCATION
+    topic = str(ActionTopics.DISBEAC_ACTION_LOCATION)
     DisbeacActionDisbeacMacLocation(config, topic)
+    print('Subscribed to topic: ', topic)
 
-    topic = ActionTopics.DISBAND_ACTION_AMBIENT_NOISE
+    topic = str(ActionTopics.DISBAND_ACTION_AMBIENT_NOISE)
     DisbeacActionUserIdPair(config, topic)
+    print('Subscribed to topic: ', topic)
+
+    print()
 
     while (True):
         time.sleep(1)
