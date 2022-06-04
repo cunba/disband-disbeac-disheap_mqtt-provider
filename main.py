@@ -41,81 +41,6 @@ def getConfig():
     return config
 
 
-# def disbandActionDisbandIdAmbientNoise(client, userdata, msg):
-#     jsonString = msg.payload.decode('utf-8')
-#     logging.info('Received json: ' + jsonString)
-#     disbandMeasureInformationPayload = DisbandMeasureInformationPayload.from_json(jsonString)
-#     logging.info('Received message: ' + str(disbandMeasureInformationPayload))
-
-
-# def disbandActionDisbandIdHeartRate(client, userdata, msg):
-#     jsonString = msg.payload.decode('utf-8')
-#     logging.info('Received json: ' + jsonString)
-#     disbandMeasureInformationPayload = DisbandMeasureInformationPayload.from_json(jsonString)
-#     logging.info('Received message: ' + str(disbandMeasureInformationPayload))
-
-
-# def disbandActionDisbandIdHumidity(client, userdata, msg):
-#     jsonString = msg.payload.decode('utf-8')
-#     logging.info('Received json: ' + jsonString)
-#     disbandMeasureInformationPayload = DisbandMeasureInformationPayload.from_json(jsonString)
-#     logging.info('Received message: ' + str(disbandMeasureInformationPayload))
-
-
-# def disbandActionDisbandIdLightning(client, userdata, msg):
-#     jsonString = msg.payload.decode('utf-8')
-#     logging.info('Received json: ' + jsonString)
-#     disbandMeasureInformationPayload = DisbandMeasureInformationPayload.from_json(jsonString)
-#     logging.info('Received message: ' + str(disbandMeasureInformationPayload))
-
-
-# def disbandActionDisbandIdOxygen(client, userdata, msg):
-#     jsonString = msg.payload.decode('utf-8')
-#     logging.info('Received json: ' + jsonString)
-#     disbandMeasureInformationPayload = DisbandMeasureInformationPayload.from_json(jsonString)
-#     logging.info('Received message: ' + str(disbandMeasureInformationPayload))
-
-
-# def disbandActionDisbandIdPressure(client, userdata, msg):
-#     jsonString = msg.payload.decode('utf-8')
-#     logging.info('Received json: ' + jsonString)
-#     disbandMeasureInformationPayload = DisbandMeasureInformationPayload.from_json(jsonString)
-#     logging.info('Received message: ' + str(disbandMeasureInformationPayload))
-
-
-# def disbandActionDisbandIdTemperature(client, userdata, msg):
-#     jsonString = msg.payload.decode('utf-8')
-#     logging.info('Received json: ' + jsonString)
-#     disbandMeasureInformationPayload = DisbandMeasureInformationPayload.from_json(jsonString)
-#     logging.info('Received message: ' + str(disbandMeasureInformationPayload))
-
-
-# def disbandsActionUserIdPair(client, userdata, msg):
-#     jsonString = msg.payload.decode('utf-8')
-#     logging.info('Received json: ' + jsonString)
-#     pairDisbandInformationPayload = PairDisbandInformationPayload.from_json(jsonString)
-#     logging.info('Received message: ' + str(pairDisbandInformationPayload))
-
-
-# def disbeacActionUserIdPair(client, userdata, msg):
-#     jsonString = msg.payload.decode('utf-8')
-#     logging.info('Received json: ' + jsonString)
-#     pairDisbeacInformationPayload = PairDisbeacInformationPayload.from_json(jsonString)
-#     logging.info('Received message: ' + str(pairDisbeacInformationPayload))
-
-
-# def disbeacActionDisbeacIdLocation(client, userdata, msg):
-#     jsonString = msg.payload.decode('utf-8')
-#     logging.info('Received json: ' + jsonString)
-#     disbeacLocationInformationPayload = DisbeacLocationInformationPayload.from_json(jsonString)
-#     logging.info('Received message: ' + str(disbeacLocationInformationPayload))
-
-
-
-
-
-
-
 
 def main():
     logging.basicConfig(level=logging.INFO)
@@ -134,39 +59,8 @@ def main():
 
     DisbandActionDisbandIdAmbientNoise(config, ActionTopics.DISBAND_ACTION_AMBIENT_NOISE)
     DisbandActionDisbandIdHeartRate(config, ActionTopics.DISBAND_ACTION_HEART_RATE)
-    
-    # disbandActionDisbandIdAmbientNoiseMessenger = Messaging(config, 'disbands/action/*/ambient-noise', disbandActionDisbandIdAmbientNoise)
-    # disbandActionDisbandIdAmbientNoiseMessenger.loop_start()
-    # disbandActionDisbandIdHeartRateMessenger = Messaging(config, 'disbands/action/*/heart-rate', disbandActionDisbandIdHeartRate)
-    # disbandActionDisbandIdHeartRateMessenger.loop_start()
-    # disbandActionDisbandIdHumidityMessenger = Messaging(config, 'disbands/action/*/humidity', disbandActionDisbandIdHumidity)
-    # disbandActionDisbandIdHumidityMessenger.loop_start()
-    # disbandActionDisbandIdLightningMessenger = Messaging(config, 'disbands/action/*/lightning', disbandActionDisbandIdLightning)
-    # disbandActionDisbandIdLightningMessenger.loop_start()
-    # disbandActionDisbandIdOxygenMessenger = Messaging(config, 'disbands/action/+/oxygen', disbandActionDisbandIdOxygen)
-    # disbandActionDisbandIdOxygenMessenger.loop_start()
-    # disbandActionDisbandIdPressureMessenger = Messaging(config, 'disbands/action/+/pressure', disbandActionDisbandIdPressure)
-    # disbandActionDisbandIdPressureMessenger.loop_start()
-    # disbandActionDisbandIdTemperatureMessenger = Messaging(config, 'disbands/action/+/temperature', disbandActionDisbandIdTemperature)
-    # disbandActionDisbandIdTemperatureMessenger.loop_start()
-    # disbandsActionUserIdPairMessenger = Messaging(config, 'disbands/action/+/pair', disbandsActionUserIdPair)
-    # disbandsActionUserIdPairMessenger.loop_start()
-    # disbeacActionUserIdPairMessenger = Messaging(config, 'disbeacs/action/+/pair', disbeacActionUserIdPair)
-    # disbeacActionUserIdPairMessenger.loop_start()
-    # disbeacActionDisbeacIdLocationMessenger = Messaging(config, 'disbeacs/action/+/location', disbeacActionDisbeacIdLocation)
-    # disbeacActionDisbeacIdLocationMessenger.loop_start()
-
-    # Example of how to publish a message. You will have to add arguments to the constructor on the next line:
-    # payload = DisbandSyncInformationPayload()
-    # payloadJson = payload.to_json()
 
     while (True):
-        topic = str(EventTopics.DISBAND_EVENT_DISBAND_MAC_VIBRATE)
-        topic.format(disbandMac = '4')
-        # disband_event_disband_id_vibrate_topic='disbands/action/{disbandMac}/vibrate'
-        # disband_event_disband_id_vibrate_topic.format(disbandMac = str(4))
-        disband_event_disband_id_vibrate.publish(topic, True)
-        print()
         time.sleep(1)
 
 if __name__ == '__main__':
