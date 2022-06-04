@@ -1,4 +1,5 @@
 import logging
+import uuid
 from models.messaging import Messaging
 
 from repositories import DisbandRepository
@@ -7,21 +8,18 @@ from payloads.pair_disband_information_payload import PairDisbandInformationPayl
 
 class DisbandActionUserIdPair:
 
-    def __init__(self, config, topic):
+    def __init__(self, config, topic, configBack):
         self.messenger = Messaging(config, topic, self.action)
         self.messenger.loop_start()
+        self.repository = DisbandRepository(configBack)
     
     def action(self, client, userdata, msg):
         jsonString = msg.payload.decode('utf-8')
-        print(str(client))
-        print(str(userdata))
-        print(str(msg))
-        logging.info('Received message: ' + msg.payload)
+        logging.info('Received message: ' + jsonString)
         pairDisbandInformationPayload = PairDisbandInformationPayload.from_json(jsonString)
-        logging.info('Received message: ' + str(pairDisbandInformationPayload))
-        # self.save()
+        self.save(pairDisbandInformationPayload)
 
 
-    def save(self, payload):
-        disbandDTO = DisbandDTO(payload.get('mac'), payload.get('model'), payload.get('version'), payload.get('userId'))
-        DisbandRepository.save(disbandDTO)
+    def save(self, payload: PairDisbandInformationPayload):
+        disbandDTO = DisbandDTO(str(payload.mac), str(payload.model), str(payload.version), str(payload.userId))
+        self.repository.save(disbandDTO)

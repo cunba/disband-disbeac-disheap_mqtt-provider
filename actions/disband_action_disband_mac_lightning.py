@@ -8,19 +8,17 @@ from python_client import LightningDTO
 
 class DisbandActionDisbandMacLightning:
 
-    def __init__(self, config, topic):
+    def __init__(self, config, topic, configBack):
         self.messenger = Messaging(config, topic, self.action)
         self.messenger.loop_start()
+        self.repository = LightningRepository(configBack)
     
     def action(self, client, userdata, msg):
         jsonString = msg.payload.decode('utf-8')
-        print(str(client))
-        print(str(userdata))
-        print(str(msg))
         logging.info('Received json: ' + jsonString)
         disbandLightningInformationPayload = DisbandLightningInformationPayload.from_json(jsonString)
-        logging.info('Received message: ' + str(disbandLightningInformationPayload))
+        self.save_data(disbandLightningInformationPayload)
 
-    def save_data(self, disbandMac, payload):
-        lightningDTO = LightningDTO(payload.get('data'), payload.get('date'), disbandMac)
-        LightningRepository.save(lightningDTO)
+    def save_data(self, payload: DisbandLightningInformationPayload):
+        lightningDTO = LightningDTO(payload.data, payload.sentAt, payload.disbandMac)
+        self.repository.save(lightningDTO)

@@ -17,9 +17,9 @@ from models.sent_at import SentAt
 
 from python_client import Configuration
 from repositories import LoginRepository
-from utils.topics import ActionTopics
 from actions import *
 from events import *
+from utils.convert_mac import ConvertMac
 
 
 backend_configuration = Configuration(host = "http://63.33.86.240:8080")
@@ -50,73 +50,75 @@ def main():
 
     login(CREDENTIALS_EMAIL, CREDENTIALS_PASSWORD)
 
+    disbandMacToTopic = ConvertMac().mac_to_string(DISBAND_MAC)
+
     # Creating the messaging for publications
 
     topic = 'disbands/event/{disbandMac}/sync'
-    topicFormat = topic.format(disbandMac = DISBAND_MAC)
+    topicFormat = topic.format(disbandMac = disbandMacToTopic)
     disband_event_sync = DisbandEventSync(config, topicFormat)
     print('Connected to publication topic: ', topicFormat)
 
     topic = 'disbands/event/{disbandMac}/sync/alarm'
-    topicFormat = topic.format(disbandMac = DISBAND_MAC)
+    topicFormat = topic.format(disbandMac = disbandMacToTopic)
     disband_event_sync = DisbandEventSyncAlarm(config, topicFormat)
     print('Connected to publication topic: ', topicFormat)
 
     topic = 'disbands/event/{disbandMac}/sync/measure-times'
-    topicFormat = topic.format(disbandMac = DISBAND_MAC)
+    topicFormat = topic.format(disbandMac = disbandMacToTopic)
     disband_event_sync = DisbandEventSyncMeasureTimes(config, topicFormat)
     print('Connected to publication topic: ', topicFormat)
 
     topic = 'disbeacs/event/{disbeacMac}/active/{disbandMac}'
-    topicFormat = topic.format(disbeacMac = '', disbandMac = DISBAND_MAC)
+    topicFormat = topic.format(disbeacMac = '', disbandMac = disbandMacToTopic)
     disband_event_sync = DisbeacEventActive(config, topicFormat)
     print('Connected to publication topic: ', topicFormat)
 
     topic = 'disbands/event/{disbandMac}/vibrate'
-    topicFormat = topic.format(disbandMac = DISBAND_MAC)
+    topicFormat = topic.format(disbandMac = disbandMacToTopic)
     disband_event_sync = DisbandEventVibrate(config, topicFormat)
     print('Connected to publication topic: ', topicFormat)
 
     # Subscribing to the topics
     
-    topic = str(ActionTopics.DISBAND_ACTION_AMBIENT_NOISE)
-    DisbandActionDisbandMacAmbientNoise(config, topic)
+    topic = 'disbands/action/+/ambient-noise'
+    DisbandActionDisbandMacAmbientNoise(config, topic, backend_configuration)
     print('Subscribed to topic: ', topic)
 
-    topic = str(ActionTopics.DISBAND_ACTION_HEART_RATE)
-    DisbandActionDisbandMacHeartRate(config, topic)
+    topic = 'disbands/action/+/heart-rate'
+    DisbandActionDisbandMacHeartRate(config, topic, backend_configuration)
     print('Subscribed to topic: ', topic)
 
-    topic = str(ActionTopics.DISBAND_ACTION_HUMIDITY)
-    DisbandActionDisbandMacHumidity(config, topic)
+    topic = 'disbands/action/+/humidity'
+    DisbandActionDisbandMacHumidity(config, topic, backend_configuration)
     print('Subscribed to topic: ', topic)
 
-    topic = str(ActionTopics.DISBAND_ACTION_LIGHTNING)
-    DisbandActionDisbandMacLightning(config, topic)
+    topic = 'disbands/action/+/lightning'
+    DisbandActionDisbandMacLightning(config, topic, backend_configuration)
     print('Subscribed to topic: ', topic)
 
-    topic = str(ActionTopics.DISBAND_ACTION_OXYGEN)
-    DisbandActionDisbandMacOxygen(config, topic)
+    topic = 'disbands/action/+/oxygen'
+    DisbandActionDisbandMacOxygen(config, topic, backend_configuration)
     print('Subscribed to topic: ', topic)
 
-    topic = str(ActionTopics.DISBAND_ACTION_PRESSURE)
-    DisbandActionDisbandMacPressure(config, topic)
+    topic = 'disbands/action/+/pressure'
+    DisbandActionDisbandMacPressure(config, topic, backend_configuration)
     print('Subscribed to topic: ', topic)
 
-    topic = str(ActionTopics.DISBAND_ACTION_TEMPERATURE)
-    DisbandActionDisbandMacTemperature(config, topic)
+    topic = 'disbands/action/+/temperature'
+    DisbandActionDisbandMacTemperature(config, topic, backend_configuration)
     print('Subscribed to topic: ', topic)
 
-    topic = str(ActionTopics.DISBAND_ACTION_PAIR)
-    DisbandActionUserIdPair(config, topic)
+    topic = 'disbands/action/+/pair'
+    DisbandActionUserIdPair(config, topic, backend_configuration)
     print('Subscribed to topic: ', topic)
 
-    topic = str(ActionTopics.DISBEAC_ACTION_LOCATION)
-    DisbeacActionDisbeacMacLocation(config, topic)
+    topic = 'disbands/action/+/location'
+    DisbeacActionDisbeacMacLocation(config, topic, backend_configuration)
     print('Subscribed to topic: ', topic)
 
-    topic = str(ActionTopics.DISBAND_ACTION_AMBIENT_NOISE)
-    DisbeacActionUserIdPair(config, topic)
+    topic = 'disbeacs/action/+/pair'
+    DisbeacActionUserIdPair(config, topic, backend_configuration)
     print('Subscribed to topic: ', topic)
 
     print()

@@ -7,21 +7,18 @@ from payloads.pair_disbeac_information_payload import PairDisbeacInformationPayl
 
 class DisbeacActionUserIdPair:
 
-    def __init__(self, config, topic):
+    def __init__(self, config, topic, configBack):
         self.messenger = Messaging(config, topic, self.action)
         self.messenger.loop_start()
+        self.repository = DisbeacRepository(configBack)
     
     def action(self, client, userdata, msg):
         jsonString = msg.payload.decode('utf-8')
-        print(str(client))
-        print(str(userdata))
-        print(str(msg))
         logging.info('Received message: ' + msg.payload)
         pairDisbeacInformationPayload = PairDisbeacInformationPayload.from_json(jsonString)
-        logging.info('Received message: ' + str(pairDisbeacInformationPayload))
-        # self.save()
+        self.save(pairDisbeacInformationPayload)
 
 
-    def save(self, payload):
-        disbeacDTO = DisbeacDTO(payload.get('mac'), payload.get('model'), payload.get('version'), payload.get('userId'))
-        DisbeacRepository.save(disbeacDTO)
+    def save(self, payload: PairDisbeacInformationPayload):
+        disbeacDTO = DisbeacDTO(payload.mac, payload.model, payload.version, payload.userId)
+        self.repository.save(disbeacDTO)

@@ -8,19 +8,17 @@ from python_client import MeasureDTO
 
 class DisbandActionDisbandMacHumidity:
 
-    def __init__(self, config, topic):
+    def __init__(self, config, topic, configBack):
         self.messenger = Messaging(config, topic, self.action)
         self.messenger.loop_start()
+        self.repository = HumidityRepository(configBack)
     
     def action(self, client, userdata, msg):
         jsonString = msg.payload.decode('utf-8')
-        print(str(client))
-        print(str(userdata))
-        print(str(msg))
         logging.info('Received json: ' + jsonString)
         disbandMeasureInformationPayload = DisbandMeasureInformationPayload.from_json(jsonString)
-        logging.info('Received message: ' + str(disbandMeasureInformationPayload))
+        self.save_data(disbandMeasureInformationPayload)
 
-    def save_data(self, disbandMac, payload):
-        measureDTO = MeasureDTO(payload.get('data'), payload.get('date'), disbandMac)
-        HumidityRepository.save(measureDTO)
+    def save_data(self, payload: DisbandMeasureInformationPayload):
+        measureDTO = MeasureDTO(payload.data, payload.sentAt, payload.disbandMac)
+        self.repository.save(measureDTO)

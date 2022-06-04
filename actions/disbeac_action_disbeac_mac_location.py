@@ -8,19 +8,17 @@ from python_client import LocationDisbeacDTO
 
 class DisbeacActionDisbeacMacLocation:
 
-    def __init__(self, config, topic):
+    def __init__(self, config, topic, configBack):
         self.messenger = Messaging(config, topic, self.action)
         self.messenger.loop_start()
+        self.repository = LocationRepository(configBack)
     
     def action(self, client, userdata, msg):
         jsonString = msg.payload.decode('utf-8')
-        print(str(client))
-        print(str(userdata))
-        print(str(msg))
         logging.info('Received json: ' + jsonString)
         disbeacLocationInformationPayload = DisbeacLocationInformationPayload.from_json(jsonString)
-        logging.info('Received message: ' + str(disbeacLocationInformationPayload))
+        self.save_data(disbeacLocationInformationPayload)
 
-    def save_data(self, disbeacMac, payload):
-        locationDTO = LocationDisbeacDTO(payload.get('data'), payload.get('date'), disbeacMac)
-        LocationRepository.save(locationDTO)
+    def save_data(self, payload: DisbeacLocationInformationPayload):
+        locationDTO = LocationDisbeacDTO(payload.data, payload.sentAt, payload.disbeacMac)
+        self.repository.save(locationDTO)
