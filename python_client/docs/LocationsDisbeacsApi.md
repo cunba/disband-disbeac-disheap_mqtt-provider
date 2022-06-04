@@ -605,7 +605,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         latitude=3.14,
         longitude=3.14,
         date=1,
-        disbeac_id="disbeac_id_example",
+        disbeac_mac="disbeac_mac_example",
     ) # LocationDisbeacDTO |  (optional)
 
     # example passing only required values which don't have defaults set

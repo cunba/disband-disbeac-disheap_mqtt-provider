@@ -484,6 +484,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | OK |  -  |
 **201** | CREATED |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorize |  -  |

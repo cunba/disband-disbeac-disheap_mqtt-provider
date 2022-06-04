@@ -82,7 +82,7 @@ class MeasureDTO(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'disband_id': (str,),  # noqa: E501
+            'disband_mac': (str,),  # noqa: E501
             'data': (float,),  # noqa: E501
             'date': (int,),  # noqa: E501
         }
@@ -93,7 +93,7 @@ class MeasureDTO(ModelNormal):
 
 
     attribute_map = {
-        'disband_id': 'disbandId',  # noqa: E501
+        'disband_mac': 'disbandMac',  # noqa: E501
         'data': 'data',  # noqa: E501
         'date': 'date',  # noqa: E501
     }
@@ -105,11 +105,11 @@ class MeasureDTO(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, disband_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, disband_mac, *args, **kwargs):  # noqa: E501
         """MeasureDTO - a model defined in OpenAPI
 
         Args:
-            disband_id (str):
+            disband_mac (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -175,7 +175,7 @@ class MeasureDTO(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.disband_id = disband_id
+        self.disband_mac = disband_mac
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -196,11 +196,11 @@ class MeasureDTO(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, disband_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, disband_mac, *args, **kwargs):  # noqa: E501
         """MeasureDTO - a model defined in OpenAPI
 
         Args:
-            disband_id (str):
+            disband_mac (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -264,7 +264,7 @@ class MeasureDTO(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.disband_id = disband_id
+        self.disband_mac = disband_mac
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

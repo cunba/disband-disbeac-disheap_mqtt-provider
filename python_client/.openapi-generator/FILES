@@ -1,5 +1,6 @@
 .gitignore
 .gitlab-ci.yml
+.openapi-generator-ignore
 .travis.yml
 README.md
 docs/Alarm.md
@@ -93,5 +94,4 @@ requirements.txt
 setup.cfg
 setup.py
 test-requirements.txt
-test/__init__.py
 tox.ini

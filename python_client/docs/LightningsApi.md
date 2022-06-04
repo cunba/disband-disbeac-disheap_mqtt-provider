@@ -528,7 +528,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         green_lightning=3.14,
         blue_lightning=3.14,
         date=1,
-        disband_id="disband_id_example",
+        disband_mac="disband_mac_example",
     ) # LightningDTO | 
 
     # example passing only required values which don't have defaults set
