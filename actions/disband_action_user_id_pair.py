@@ -5,7 +5,7 @@ from repositories import DisbandRepository
 from python_client import DisbandDTO
 from payloads.pair_disband_information_payload import PairDisbandInformationPayload
 
-class DisbandActionDisbandMacPair:
+class DisbandActionUserIdPair:
 
     def __init__(self, config, topic):
         self.messenger = Messaging(config, topic, self.action)
@@ -22,6 +22,6 @@ class DisbandActionDisbandMacPair:
         # self.save()
 
 
-    def save(self, disbandMac, payload):
-        disbandDTO = DisbandDTO(payload.get('model'), payload.get('version'), disbandMac)
+    def save(self, payload):
+        disbandDTO = DisbandDTO(payload.get('mac'), payload.get('model'), payload.get('version'), payload.get('userId'))
         DisbandRepository.save(disbandDTO)

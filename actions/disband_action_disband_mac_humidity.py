@@ -2,11 +2,11 @@ import logging
 from models.messaging import Messaging
 
 from payloads.disband_measure_information_payload import DisbandMeasureInformationPayload
-from repositories import TemperatureRepository
-from python_client import Temperature
+from repositories import HumidityRepository
+from python_client import Humidity
 from python_client import MeasureDTO
 
-class DisbandActionDisbandIdTemperature:
+class DisbandActionDisbandMacHumidity:
 
     def __init__(self, config, topic):
         self.messenger = Messaging(config, topic, self.action)
@@ -21,6 +21,6 @@ class DisbandActionDisbandIdTemperature:
         disbandMeasureInformationPayload = DisbandMeasureInformationPayload.from_json(jsonString)
         logging.info('Received message: ' + str(disbandMeasureInformationPayload))
 
-    def save_data(self, disbandId, payload):
-        measureDTO = MeasureDTO(payload.get('data'), payload.get('date'), disbandId)
-        TemperatureRepository.save(measureDTO)
+    def save_data(self, disbandMac, payload):
+        measureDTO = MeasureDTO(payload.get('data'), payload.get('date'), disbandMac)
+        HumidityRepository.save(measureDTO)

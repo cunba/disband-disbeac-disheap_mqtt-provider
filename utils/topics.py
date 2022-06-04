@@ -12,11 +12,3 @@ class ActionTopics(Enum):
     DISBAND_ACTION_PAIR = 'disbands/action/+/pair'
     DISBEAC_ACTION_PAIR = 'disbeacs/action/+/pair'
     DISBEAC_ACTION_LOCATION = 'disbands/action/+/location'
-
-class EventTopics(Enum):
-    # PUBLICATIONS
-    DISBAND_EVENT_DISBAND_MAC_SYNC = 'disbands/event/{disbandMac}/sync'
-    DISBAND_EVENT_DISBAND_MAC_SYNC_ALARM = 'disbands/event/{disbandMac}/sync/alarm'
-    DISBAND_EVENT_DISBAND_MAC_SYNC_MEASURE_TIMES = 'disbands/event/{disbandMac}/sync/measure-times'
-    DISBEAC_EVENT_DISBEAC_MAC_ACTIVE_DISBAND_MAC = 'disbeacs/event/{disbeacMac}/active/{disbandMac}'
-    DISBAND_EVENT_DISBAND_MAC_VIBRATE = 'disbands/event/{disbandMac}/vibrate'

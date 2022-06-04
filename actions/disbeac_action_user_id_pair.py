@@ -5,7 +5,7 @@ from repositories import DisbeacRepository
 from python_client import DisbeacDTO
 from payloads.pair_disbeac_information_payload import PairDisbeacInformationPayload
 
-class DisbeacActionDisbeacMacPair:
+class DisbeacActionUserIdPair:
 
     def __init__(self, config, topic):
         self.messenger = Messaging(config, topic, self.action)
@@ -22,6 +22,6 @@ class DisbeacActionDisbeacMacPair:
         # self.save()
 
 
-    def save(self, DisbeacMac, payload):
-        disbeacDTO = DisbeacDTO(payload.get('model'), payload.get('version'), DisbeacMac)
+    def save(self, payload):
+        disbeacDTO = DisbeacDTO(payload.get('mac'), payload.get('model'), payload.get('version'), payload.get('userId'))
         DisbeacRepository.save(disbeacDTO)

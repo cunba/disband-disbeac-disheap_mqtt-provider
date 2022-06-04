@@ -17,14 +17,15 @@ from models.sent_at import SentAt
 
 from python_client import Configuration
 from repositories import LoginRepository
-from actions import DisbandActionDisbandIdAmbientNoise
-from utils.topics import ActionTopics, EventTopics
+from utils.topics import ActionTopics
 from actions import *
+from events import *
 
 
 backend_configuration = Configuration(host = "http://63.33.86.240:8080")
-credentials_email = 'ire.cunba@gmail.com'
-credentials_password = '282629_Cunba'
+CREDENTIALS_EMAIL = 'ire.cunba@gmail.com'
+CREDENTIALS_PASSWORD = '282629_Cunba'
+DISBAND_MAC = 'C0:50:08:32:26:56'
 
 def login(email, password):
     login_api = LoginRepository(backend_configuration)
@@ -47,18 +48,61 @@ def main():
     logging.info('Start of main.')
     config = getConfig()
 
-    login(credentials_email, credentials_password)
+    login(CREDENTIALS_EMAIL, CREDENTIALS_PASSWORD)
 
     # Creating the messaging for publications
-    disband_event_disband_id_sync = Messaging(config)
-    disband_event_disband_id_sync_Alarm = Messaging(config)
-    disbeac_event_disbeac_id_active_disband_id = Messaging(config)
-    disband_event_disband_id_vibrate = Messaging(config)
+
+    topic = 'disbands/event/{disbandMac}/sync'
+    topicFormat = topic.format(disbandMac = DISBAND_MAC)
+    disband_event_sync = DisbandEventSync(config, topicFormat)
+
+    topic = 'disbands/event/{disbandMac}/sync/alarm'
+    topicFormat = topic.format(disbandMac = DISBAND_MAC)
+    disband_event_sync = DisbandEventSyncAlarm(config, topic)
+
+    topic = 'disbands/event/{disbandMac}/sync/measure-times'
+    topicFormat = topic.format(disbandMac = DISBAND_MAC)
+    disband_event_sync = DisbandEventSyncMeasureTimes(config, topicFormat)
+
+    topic = 'disbeacs/event/{disbeacMac}/active/{disbandMac}'
+    topicFormat = topic.format(disbandMac = DISBAND_MAC)
+    disband_event_sync = DisbeacEventActive(config, topic)
+
+    topic = 'disbands/event/{disbandMac}/vibrate'
+    topicFormat = topic.format(disbandMac = DISBAND_MAC)
+    disband_event_sync = DisbandEventVibrate(config, topic)
 
     # Subscribing to the topics
+    
+    topic = ActionTopics.DISBAND_ACTION_AMBIENT_NOISE
+    DisbandActionDisbandMacAmbientNoise(config, topic)
 
-    DisbandActionDisbandIdAmbientNoise(config, ActionTopics.DISBAND_ACTION_AMBIENT_NOISE)
-    DisbandActionDisbandIdHeartRate(config, ActionTopics.DISBAND_ACTION_HEART_RATE)
+    topic = ActionTopics.DISBAND_ACTION_HEART_RATE
+    DisbandActionDisbandMacHeartRate(config, topic)
+
+    topic = ActionTopics.DISBAND_ACTION_HUMIDITY
+    DisbandActionDisbandMacHumidity(config, topic)
+
+    topic = ActionTopics.DISBAND_ACTION_LIGHTNING
+    DisbandActionDisbandMacLightning(config, topic)
+
+    topic = ActionTopics.DISBAND_ACTION_OXYGEN
+    DisbandActionDisbandMacOxygen(config, topic)
+
+    topic = ActionTopics.DISBAND_ACTION_PRESSURE
+    DisbandActionDisbandMacPressure(config, topic)
+
+    topic = ActionTopics.DISBAND_ACTION_TEMPERATURE
+    DisbandActionDisbandMacTemperature(config, topic)
+
+    topic = ActionTopics.DISBAND_ACTION_PAIR
+    DisbandActionUserIdPair(config, topic)
+
+    topic = ActionTopics.DISBEAC_ACTION_LOCATION
+    DisbeacActionDisbeacMacLocation(config, topic)
+
+    topic = ActionTopics.DISBAND_ACTION_AMBIENT_NOISE
+    DisbeacActionUserIdPair(config, topic)
 
     while (True):
         time.sleep(1)

@@ -1,12 +1,12 @@
 import logging
 from models.messaging import Messaging
 
-from payloads.disband_measure_information_payload import DisbandMeasureInformationPayload
+from payloads.disbeac_location_information_payload import DisbeacLocationInformationPayload
 from repositories import LocationRepository
 from python_client import LocationDisbeac
 from python_client import LocationDisbeacDTO
 
-class DisbandActionDisbandIdLocation:
+class DisbeacActionDisbeacMacLocation:
 
     def __init__(self, config, topic):
         self.messenger = Messaging(config, topic, self.action)
@@ -18,9 +18,9 @@ class DisbandActionDisbandIdLocation:
         print(str(userdata))
         print(str(msg))
         logging.info('Received json: ' + jsonString)
-        disbandMeasureInformationPayload = DisbandMeasureInformationPayload.from_json(jsonString)
-        logging.info('Received message: ' + str(disbandMeasureInformationPayload))
+        disbeacLocationInformationPayload = DisbeacLocationInformationPayload.from_json(jsonString)
+        logging.info('Received message: ' + str(disbeacLocationInformationPayload))
 
-    def save_data(self, disbandId, payload):
-        locationDTO = LocationDisbeacDTO(payload.get('data'), payload.get('date'), disbandId)
+    def save_data(self, disbeacMac, payload):
+        locationDTO = LocationDisbeacDTO(payload.get('data'), payload.get('date'), disbeacMac)
         LocationRepository.save(locationDTO)

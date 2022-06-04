@@ -6,7 +6,7 @@ from repositories import LightningRepository
 from python_client import Lightning
 from python_client import LightningDTO
 
-class DisbandActionDisbandIdLightning:
+class DisbandActionDisbandMacLightning:
 
     def __init__(self, config, topic):
         self.messenger = Messaging(config, topic, self.action)
@@ -21,6 +21,6 @@ class DisbandActionDisbandIdLightning:
         disbandLightningInformationPayload = DisbandLightningInformationPayload.from_json(jsonString)
         logging.info('Received message: ' + str(disbandLightningInformationPayload))
 
-    def save_data(self, disbandId, payload):
-        lightningDTO = LightningDTO(payload.get('data'), payload.get('date'), disbandId)
+    def save_data(self, disbandMac, payload):
+        lightningDTO = LightningDTO(payload.get('data'), payload.get('date'), disbandMac)
         LightningRepository.save(lightningDTO)
