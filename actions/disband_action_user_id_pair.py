@@ -21,5 +21,5 @@ class DisbandActionUserIdPair:
 
 
     def save(self, payload: PairDisbandInformationPayload):
-        disbandDTO = DisbandDTO(str(payload.mac), str(payload.model), str(payload.version), str(payload.userId))
+        disbandDTO = DisbandDTO(str(payload.mac), str(payload.model), str(payload.version), str(payload.userId), date = payload.sentAt)
         self.repository.save(disbandDTO)

@@ -13,6 +13,6 @@ class PressureRepository:
     def save(self, measureDTO):
         try:
             api_response = self.api_instance.save_pressure(measureDTO)
-            pprint(api_response)
+            print(str(api_response))
         except ApiException as e:
             print("Exception when calling PressureApi->save_pressure: %s\n" % e)

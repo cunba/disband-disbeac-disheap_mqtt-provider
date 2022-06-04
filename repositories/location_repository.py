@@ -13,6 +13,6 @@ class LocationRepository:
     def save(self, locationDTO):
         try:
             api_response = self.api_instance.save_location(locationDTO)
-            pprint(api_response)
+            print(str(api_response))
         except ApiException as e:
             print("Exception when calling LocationsDisbeacsApi->save_Location: %s\n" % e)

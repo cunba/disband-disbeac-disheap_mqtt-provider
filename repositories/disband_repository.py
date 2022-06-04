@@ -13,6 +13,6 @@ class DisbandRepository:
     def save(self, disbandDTO):
         try:
             api_response = self.api_instance.savedisband(disbandDTO)
-            pprint(api_response)
+            print(str(api_response))
         except ApiException as e:
             print("Exception when calling DisbandApi->save_disband: %s\n" % e)

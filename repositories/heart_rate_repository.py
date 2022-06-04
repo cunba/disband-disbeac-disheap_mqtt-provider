@@ -13,6 +13,6 @@ class HeartRateRepository:
     def save(self, measureDTO):
         try:
             api_response = self.api_instance.save_heart_rate(measureDTO)
-            pprint(api_response)
+            print(str(api_response))
         except ApiException as e:
             print("Exception when calling HeartRateApi->save_heart_rate: %s\n" % e)

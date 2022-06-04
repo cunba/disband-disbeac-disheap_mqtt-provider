@@ -13,6 +13,6 @@ class AmbientNoiseRepository:
     def save(self, measureDTO):
         try:
             api_response = self.api_instance.save_ambient_noise(measureDTO)
-            pprint(api_response)
+            print(str(api_response))
         except ApiException as e:
             print("Exception when calling AmbientNoisesApi->save_ambient_noise: %s\n" % e)

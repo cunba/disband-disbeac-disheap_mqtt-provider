@@ -13,6 +13,6 @@ class DisbeacRepository:
     def save(self, disbeacDTO):
         try:
             api_response = self.api_instance.savedisbeac(disbeacDTO)
-            pprint(api_response)
+            print(str(api_response))
         except ApiException as e:
             print("Exception when calling DisbeacApi->save_disbeac: %s\n" % e)

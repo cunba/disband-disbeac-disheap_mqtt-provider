@@ -13,6 +13,6 @@ class OxygenRepository:
     def save(self, measureDTO):
         try:
             api_response = self.api_instance.save_oxygen(measureDTO)
-            pprint(api_response)
+            print(str(api_response))
         except ApiException as e:
             print("Exception when calling OxygenApi->save_oxygen: %s\n" % e)
