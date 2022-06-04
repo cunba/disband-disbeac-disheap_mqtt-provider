@@ -10,6 +10,7 @@
 
 
 import re  # noqa: F401
+import sys  # noqa: F401
 import sys
 from python_client.openapi_client.model.user_model import UserModel  # noqa: F401
 
@@ -92,7 +93,7 @@ class Disband(ModelNormal):
             'id': (str,),  # noqa: E501
             'mac': (str,),  # noqa: E501
             'model': (str,),  # noqa: E501
-            'firmware_version': (str,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'date': (int,),  # noqa: E501
             'user': (UserModel,),  # noqa: E501
         }
@@ -106,7 +107,7 @@ class Disband(ModelNormal):
         'id': 'id',  # noqa: E501
         'mac': 'mac',  # noqa: E501
         'model': 'model',  # noqa: E501
-        'firmware_version': 'firmwareVersion',  # noqa: E501
+        'version': 'version',  # noqa: E501
         'date': 'date',  # noqa: E501
         'user': 'user',  # noqa: E501
     }
@@ -155,7 +156,7 @@ class Disband(ModelNormal):
             id (str): [optional]  # noqa: E501
             mac (str): [optional]  # noqa: E501
             model (str): [optional]  # noqa: E501
-            firmware_version (str): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             date (int): [optional]  # noqa: E501
             user (UserModel): [optional]  # noqa: E501
         """
@@ -246,7 +247,7 @@ class Disband(ModelNormal):
             id (str): [optional]  # noqa: E501
             mac (str): [optional]  # noqa: E501
             model (str): [optional]  # noqa: E501
-            firmware_version (str): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
             date (int): [optional]  # noqa: E501
             user (UserModel): [optional]  # noqa: E501
         """

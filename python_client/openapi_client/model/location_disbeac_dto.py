@@ -85,7 +85,7 @@ class LocationDisbeacDTO(ModelNormal):
             'latitude': (float,),  # noqa: E501
             'longitude': (float,),  # noqa: E501
             'date': (int,),  # noqa: E501
-            'disbeac_id': (str,),  # noqa: E501
+            'disbeac_mac': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +97,7 @@ class LocationDisbeacDTO(ModelNormal):
         'latitude': 'latitude',  # noqa: E501
         'longitude': 'longitude',  # noqa: E501
         'date': 'date',  # noqa: E501
-        'disbeac_id': 'disbeacId',  # noqa: E501
+        'disbeac_mac': 'disbeacMac',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,7 +144,7 @@ class LocationDisbeacDTO(ModelNormal):
             latitude (float): [optional]  # noqa: E501
             longitude (float): [optional]  # noqa: E501
             date (int): [optional]  # noqa: E501
-            disbeac_id (str): [optional]  # noqa: E501
+            disbeac_mac (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,7 +233,7 @@ class LocationDisbeacDTO(ModelNormal):
             latitude (float): [optional]  # noqa: E501
             longitude (float): [optional]  # noqa: E501
             date (int): [optional]  # noqa: E501
-            disbeac_id (str): [optional]  # noqa: E501
+            disbeac_mac (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

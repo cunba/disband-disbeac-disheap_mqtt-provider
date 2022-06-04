@@ -446,7 +446,8 @@ with openapi_client.ApiClient(configuration) as api_client:
     disband_dto = DisbandDTO(
         mac="mac_example",
         model="model_example",
-        firmware_version="firmware_version_example",
+        version="version_example",
+        date=1,
         user_id="user_id_example",
     ) # DisbandDTO | 
 
@@ -534,7 +535,8 @@ with openapi_client.ApiClient(configuration) as api_client:
     disband_dto = DisbandDTO(
         mac="mac_example",
         model="model_example",
-        firmware_version="firmware_version_example",
+        version="version_example",
+        date=1,
         user_id="user_id_example",
     ) # DisbandDTO | 
 

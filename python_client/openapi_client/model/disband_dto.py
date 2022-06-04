@@ -84,8 +84,9 @@ class DisbandDTO(ModelNormal):
         return {
             'mac': (str,),  # noqa: E501
             'model': (str,),  # noqa: E501
-            'firmware_version': (str,),  # noqa: E501
+            'version': (str,),  # noqa: E501
             'user_id': (str,),  # noqa: E501
+            'date': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -96,8 +97,9 @@ class DisbandDTO(ModelNormal):
     attribute_map = {
         'mac': 'mac',  # noqa: E501
         'model': 'model',  # noqa: E501
-        'firmware_version': 'firmware_version',  # noqa: E501
+        'version': 'version',  # noqa: E501
         'user_id': 'userId',  # noqa: E501
+        'date': 'date',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,13 +109,13 @@ class DisbandDTO(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, mac, model, firmware_version, user_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, mac, model, version, user_id, *args, **kwargs):  # noqa: E501
         """DisbandDTO - a model defined in OpenAPI
 
         Args:
             mac (str):
             model (str):
-            firmware_version (str):
+            version (str):
             user_id (str):
 
         Keyword Args:
@@ -147,6 +149,7 @@ class DisbandDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            date (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -180,7 +183,7 @@ class DisbandDTO(ModelNormal):
 
         self.mac = mac
         self.model = model
-        self.firmware_version = firmware_version
+        self.version = version
         self.user_id = user_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -202,13 +205,13 @@ class DisbandDTO(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, mac, model, firmware_version, user_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, mac, model, version, user_id, *args, **kwargs):  # noqa: E501
         """DisbandDTO - a model defined in OpenAPI
 
         Args:
             mac (str):
             model (str):
-            firmware_version (str):
+            version (str):
             user_id (str):
 
         Keyword Args:
@@ -242,6 +245,7 @@ class DisbandDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            date (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -273,7 +277,7 @@ class DisbandDTO(ModelNormal):
 
         self.mac = mac
         self.model = model
-        self.firmware_version = firmware_version
+        self.version = version
         self.user_id = user_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

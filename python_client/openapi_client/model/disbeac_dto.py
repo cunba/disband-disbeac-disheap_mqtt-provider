@@ -86,6 +86,7 @@ class DisbeacDTO(ModelNormal):
             'model': (str,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'user_id': (str,),  # noqa: E501
+            'date': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +99,7 @@ class DisbeacDTO(ModelNormal):
         'model': 'model',  # noqa: E501
         'version': 'version',  # noqa: E501
         'user_id': 'userId',  # noqa: E501
+        'date': 'date',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,6 +149,7 @@ class DisbeacDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            date (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -242,6 +245,7 @@ class DisbeacDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            date (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

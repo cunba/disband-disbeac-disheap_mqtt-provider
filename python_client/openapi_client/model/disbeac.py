@@ -10,7 +10,7 @@
 
 
 import re  # noqa: F401
-import sys
+import sys  # noqa: F401
 from python_client.openapi_client.model.user_model import UserModel  # noqa: F401
 
 from python_client.openapi_client.model_utils import (  # noqa: F401

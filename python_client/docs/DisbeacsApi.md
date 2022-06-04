@@ -447,6 +447,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         mac="mac_example",
         model="model_example",
         version="version_example",
+        date="date_example",
         user_id="user_id_example",
     ) # DisbeacDTO | 
 
@@ -535,6 +536,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         mac="mac_example",
         model="model_example",
         version="version_example",
+        date="date_example",
         user_id="user_id_example",
     ) # DisbeacDTO | 
 
