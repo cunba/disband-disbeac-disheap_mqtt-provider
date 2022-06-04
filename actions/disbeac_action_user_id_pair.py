@@ -20,5 +20,5 @@ class DisbeacActionUserIdPair:
 
 
     def save(self, payload: PairDisbeacInformationPayload):
-        disbeacDTO = DisbeacDTO(payload.mac, payload.model, payload.version, payload.userId)
+        disbeacDTO = DisbeacDTO(payload.mac, payload.model, payload.version, payload.userId, date = payload.sentAt)
         self.repository.save(disbeacDTO)

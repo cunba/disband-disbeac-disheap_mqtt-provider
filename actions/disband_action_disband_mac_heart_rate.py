@@ -20,5 +20,5 @@ class DisbandActionDisbandMacHeartRate:
         self.save_data(disbandMeasureInformationPayload)
 
     def save_data(self, payload: DisbandMeasureInformationPayload):
-        measureDTO = MeasureDTO(payload.data, payload.sentAt, payload.disbandMac)
+        measureDTO = MeasureDTO(payload.disbandMac, data = payload.data, date = payload.sentAt)
         self.repository.save(measureDTO)

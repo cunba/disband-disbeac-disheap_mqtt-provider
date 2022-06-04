@@ -20,5 +20,5 @@ class DisbeacActionDisbeacMacLocation:
         self.save_data(disbeacLocationInformationPayload)
 
     def save_data(self, payload: DisbeacLocationInformationPayload):
-        locationDTO = LocationDisbeacDTO(payload.data, payload.sentAt, payload.disbeacMac)
+        locationDTO = LocationDisbeacDTO(longitude = payload.longitude, latitude = payload.latitude, date = payload.sentAt, disbeac_mac = payload.disbeacMac)
         self.repository.save(locationDTO)

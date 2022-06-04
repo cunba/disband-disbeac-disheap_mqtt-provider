@@ -87,7 +87,7 @@ class LightningDTO(ModelNormal):
             'green_lightning': (float,),  # noqa: E501
             'blue_lightning': (float,),  # noqa: E501
             'date': (int,),  # noqa: E501
-            'disband_id': (str,),  # noqa: E501
+            'disband_mac': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -101,7 +101,7 @@ class LightningDTO(ModelNormal):
         'green_lightning': 'greenLightning',  # noqa: E501
         'blue_lightning': 'blueLightning',  # noqa: E501
         'date': 'date',  # noqa: E501
-        'disband_id': 'disbandId',  # noqa: E501
+        'disband_mac': 'disbandMac',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,7 +150,7 @@ class LightningDTO(ModelNormal):
             green_lightning (float): [optional]  # noqa: E501
             blue_lightning (float): [optional]  # noqa: E501
             date (int): [optional]  # noqa: E501
-            disband_id (str): [optional]  # noqa: E501
+            disband_mac (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,7 +241,7 @@ class LightningDTO(ModelNormal):
             green_lightning (float): [optional]  # noqa: E501
             blue_lightning (float): [optional]  # noqa: E501
             date (int): [optional]  # noqa: E501
-            disband_id (str): [optional]  # noqa: E501
+            disband_mac (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

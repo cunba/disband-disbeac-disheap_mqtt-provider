@@ -20,5 +20,5 @@ class DisbandActionDisbandMacLightning:
         self.save_data(disbandLightningInformationPayload)
 
     def save_data(self, payload: DisbandLightningInformationPayload):
-        lightningDTO = LightningDTO(payload.data, payload.sentAt, payload.disbandMac)
+        lightningDTO = LightningDTO(lightning = payload.lightning, red_lightning = payload.redLightning, green_lightning = payload.greenLightning, blue_lightning = payload.blueLightning, date =  payload.sentAt, disband_mac = payload.disbandMac)
         self.repository.save(lightningDTO)
