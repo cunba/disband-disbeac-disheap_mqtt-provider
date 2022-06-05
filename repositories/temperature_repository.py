@@ -14,5 +14,6 @@ class TemperatureRepository:
         try:
             api_response = self.api_instance.save_temperature(measureDTO)
             print(str(api_response))
+            print()
         except ApiException as e:
             print("Exception when calling TemperatureApi->save_temperature: %s\n" % e)

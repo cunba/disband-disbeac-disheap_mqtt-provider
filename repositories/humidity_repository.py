@@ -14,5 +14,6 @@ class HumidityRepository:
         try:
             api_response = self.api_instance.save_humidity(measureDTO)
             print(str(api_response))
+            print()
         except ApiException as e:
             print("Exception when calling HumidityApi->save_humidity: %s\n" % e)

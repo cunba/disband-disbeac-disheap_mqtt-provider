@@ -90,10 +90,10 @@ class Lightning(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'lightning': (float,),  # noqa: E501
-            'red_lightning': (float,),  # noqa: E501
-            'green_lightning': (float,),  # noqa: E501
-            'blue_lightning': (float,),  # noqa: E501
+            'lightning': (int,),  # noqa: E501
+            'red_lightning': (int,),  # noqa: E501
+            'green_lightning': (int,),  # noqa: E501
+            'blue_lightning': (int,),  # noqa: E501
             'date': (int,),  # noqa: E501
             'disband': (Disband,),  # noqa: E501
         }
@@ -155,10 +155,10 @@ class Lightning(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            lightning (float): [optional]  # noqa: E501
-            red_lightning (float): [optional]  # noqa: E501
-            green_lightning (float): [optional]  # noqa: E501
-            blue_lightning (float): [optional]  # noqa: E501
+            lightning (int): [optional]  # noqa: E501
+            red_lightning (int): [optional]  # noqa: E501
+            green_lightning (int): [optional]  # noqa: E501
+            blue_lightning (int): [optional]  # noqa: E501
             date (int): [optional]  # noqa: E501
             disband (Disband): [optional]  # noqa: E501
         """
@@ -247,10 +247,10 @@ class Lightning(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            lightning (float): [optional]  # noqa: E501
-            red_lightning (float): [optional]  # noqa: E501
-            green_lightning (float): [optional]  # noqa: E501
-            blue_lightning (float): [optional]  # noqa: E501
+            lightning (int): [optional]  # noqa: E501
+            red_lightning (int): [optional]  # noqa: E501
+            green_lightning (int): [optional]  # noqa: E501
+            blue_lightning (int): [optional]  # noqa: E501
             date (int): [optional]  # noqa: E501
             disband (Disband): [optional]  # noqa: E501
         """

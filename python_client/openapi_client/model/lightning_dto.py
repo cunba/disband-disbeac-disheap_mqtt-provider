@@ -82,10 +82,10 @@ class LightningDTO(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'lightning': (float,),  # noqa: E501
-            'red_lightning': (float,),  # noqa: E501
-            'green_lightning': (float,),  # noqa: E501
-            'blue_lightning': (float,),  # noqa: E501
+            'lightning': (int,),  # noqa: E501
+            'red_lightning': (int,),  # noqa: E501
+            'green_lightning': (int,),  # noqa: E501
+            'blue_lightning': (int,),  # noqa: E501
             'date': (int,),  # noqa: E501
             'disband_mac': (str,),  # noqa: E501
         }
@@ -145,10 +145,10 @@ class LightningDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            lightning (float): [optional]  # noqa: E501
-            red_lightning (float): [optional]  # noqa: E501
-            green_lightning (float): [optional]  # noqa: E501
-            blue_lightning (float): [optional]  # noqa: E501
+            lightning (int): [optional]  # noqa: E501
+            red_lightning (int): [optional]  # noqa: E501
+            green_lightning (int): [optional]  # noqa: E501
+            blue_lightning (int): [optional]  # noqa: E501
             date (int): [optional]  # noqa: E501
             disband_mac (str): [optional]  # noqa: E501
         """
@@ -236,10 +236,10 @@ class LightningDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            lightning (float): [optional]  # noqa: E501
-            red_lightning (float): [optional]  # noqa: E501
-            green_lightning (float): [optional]  # noqa: E501
-            blue_lightning (float): [optional]  # noqa: E501
+            lightning (int): [optional]  # noqa: E501
+            red_lightning (int): [optional]  # noqa: E501
+            green_lightning (int): [optional]  # noqa: E501
+            blue_lightning (int): [optional]  # noqa: E501
             date (int): [optional]  # noqa: E501
             disband_mac (str): [optional]  # noqa: E501
         """

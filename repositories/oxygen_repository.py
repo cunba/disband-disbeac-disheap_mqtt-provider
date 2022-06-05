@@ -14,5 +14,6 @@ class OxygenRepository:
         try:
             api_response = self.api_instance.save_oxygen(measureDTO)
             print(str(api_response))
+            print()
         except ApiException as e:
             print("Exception when calling OxygenApi->save_oxygen: %s\n" % e)

@@ -14,5 +14,6 @@ class PressureRepository:
         try:
             api_response = self.api_instance.save_pressure(measureDTO)
             print(str(api_response))
+            print()
         except ApiException as e:
             print("Exception when calling PressureApi->save_pressure: %s\n" % e)

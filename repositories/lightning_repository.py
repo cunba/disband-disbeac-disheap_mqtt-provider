@@ -14,5 +14,6 @@ class LightningRepository:
         try:
             api_response = self.api_instance.save_lightning(lightningDTO)
             print(str(api_response))
+            print()
         except ApiException as e:
             print("Exception when calling LightningApi->save_lightning: %s\n" % e)
