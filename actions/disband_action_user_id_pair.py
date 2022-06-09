@@ -3,7 +3,7 @@ import uuid
 from models.messaging import Messaging
 
 from repositories import DisbandRepository
-from python_client import DisbandDTO
+from python_client.disband.openapi_client.model.disband_dto import DisbandDTO
 from payloads.pair_disband_information_payload import PairDisbandInformationPayload
 
 class DisbandActionUserIdPair:

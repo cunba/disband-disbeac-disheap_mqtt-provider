@@ -15,7 +15,7 @@ from payloads.disband_measure_times_information_payload import DisbandMeasureTim
 from models.sent_at import SentAt
 
 
-from python_client import Configuration
+from python_client.disheap.openapi_client.configuration import Configuration
 from repositories import LoginRepository
 from actions import *
 from events import *
@@ -24,7 +24,7 @@ from utils.convert_mac import ConvertMac
 
 backend_configuration = Configuration(host = "http://63.33.86.240:8080")
 CREDENTIALS_EMAIL = 'ire.cunba@gmail.com'
-CREDENTIALS_PASSWORD = '282629_Cunba'
+CREDENTIALS_PASSWORD = '282629_Project'
 DISBAND_MAC = 'C0:50:08:32:26:56'
 
 def login(email, password):

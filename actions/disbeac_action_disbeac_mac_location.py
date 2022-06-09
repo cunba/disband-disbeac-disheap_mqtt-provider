@@ -3,8 +3,8 @@ from models.messaging import Messaging
 
 from payloads.disbeac_location_information_payload import DisbeacLocationInformationPayload
 from repositories import LocationRepository
-from python_client import LocationDisbeac
-from python_client import LocationDisbeacDTO
+from python_client.disbeac.openapi_client.model.location import Location
+from python_client.disbeac.openapi_client.model.location_dto import LocationDTO
 
 class DisbeacActionDisbeacMacLocation:
 
@@ -20,5 +20,5 @@ class DisbeacActionDisbeacMacLocation:
         self.save_data(disbeacLocationInformationPayload)
 
     def save_data(self, payload: DisbeacLocationInformationPayload):
-        locationDTO = LocationDisbeacDTO(longitude = payload.longitude, latitude = payload.latitude, date = payload.sentAt, disbeac_mac = payload.disbeacMac)
+        locationDTO = LocationDTO(longitude = payload.longitude, latitude = payload.latitude, date = payload.sentAt, disbeac_mac = payload.disbeacMac)
         self.repository.save(locationDTO)

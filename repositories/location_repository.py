@@ -1,14 +1,14 @@
 import pprint
-from python_client.openapi_client.api_client import ApiClient
-from python_client.openapi_client.api_client import ApiException
-from python_client.openapi_client.api.locations_disbeacs_api import LocationsDisbeacsApi
+from python_client.disbeac.openapi_client.api_client import ApiClient
+from python_client.disbeac.openapi_client.api_client import ApiException
+from python_client.disbeac.openapi_client.api.service.locations_api import LocationsApi
 
 
 class LocationRepository:
 
     def __init__(self, configuration):
         api_client = ApiClient(configuration)
-        self.api_instance = LocationsDisbeacsApi(api_client)
+        self.api_instance = LocationsApi(api_client)
 
     def save(self, locationDTO):
         try:

@@ -1,7 +1,7 @@
 import pprint
-from python_client.openapi_client.api_client import ApiClient
-from python_client.openapi_client.api_client import ApiException
-from python_client.openapi_client.api.disbands_api import DisbandsApi
+from python_client.disband.openapi_client.api_client import ApiClient
+from python_client.disband.openapi_client.api_client import ApiException
+from python_client.disband.openapi_client.api.service.disbands_api import DisbandsApi
 
 
 class DisbandRepository:
@@ -12,7 +12,7 @@ class DisbandRepository:
 
     def save(self, disbandDTO):
         try:
-            api_response = self.api_instance.savedisband(disbandDTO)
+            api_response = self.api_instance.save_disband(disbandDTO)
             print(str(api_response))
             print()
         except ApiException as e:

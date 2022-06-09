@@ -2,7 +2,7 @@ import logging
 from models.messaging import Messaging
 
 from repositories import DisbeacRepository
-from python_client import DisbeacDTO
+from python_client.disbeac.openapi_client.model.disbeac_dto import DisbeacDTO
 from payloads.pair_disbeac_information_payload import PairDisbeacInformationPayload
 
 class DisbeacActionUserIdPair:

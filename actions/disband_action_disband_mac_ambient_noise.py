@@ -3,8 +3,8 @@ from models.messaging import Messaging
 
 from payloads.disband_measure_information_payload import DisbandMeasureInformationPayload
 from repositories import AmbientNoiseRepository
-from python_client import AmbientNoise
-from python_client import MeasureDTO
+from python_client.disband.openapi_client.model.ambient_noise import AmbientNoise
+from python_client.disband.openapi_client.model.measure_dto import MeasureDTO
 
 class DisbandActionDisbandMacAmbientNoise:
 

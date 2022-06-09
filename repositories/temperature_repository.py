@@ -1,7 +1,7 @@
 import pprint
-from python_client.openapi_client.api_client import ApiClient
-from python_client.openapi_client.api_client import ApiException
-from python_client.openapi_client.api.temperatures_api import TemperaturesApi
+from python_client.disband.openapi_client.api_client import ApiClient
+from python_client.disband.openapi_client.api_client import ApiException
+from python_client.disband.openapi_client.api.service.temperatures_api import TemperaturesApi
 
 
 class TemperatureRepository:

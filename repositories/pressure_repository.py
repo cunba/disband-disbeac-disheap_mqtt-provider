@@ -1,7 +1,7 @@
 import pprint
-from python_client.openapi_client.api_client import ApiClient
-from python_client.openapi_client.api_client import ApiException
-from python_client.openapi_client.api.pressure_api import PressureApi
+from python_client.disband.openapi_client.api_client import ApiClient
+from python_client.disband.openapi_client.api_client import ApiException
+from python_client.disband.openapi_client.api.service.pressure_api import PressureApi
 
 
 class PressureRepository:

@@ -3,8 +3,8 @@ from models.messaging import Messaging
 
 from payloads.disband_lightning_information_payload import DisbandLightningInformationPayload
 from repositories import LightningRepository
-from python_client import Lightning
-from python_client import LightningDTO
+from python_client.disband.openapi_client.model.lightning import Lightning
+from python_client.disband.openapi_client.model.lightning_dto import LightningDTO
 
 class DisbandActionDisbandMacLightning:
 

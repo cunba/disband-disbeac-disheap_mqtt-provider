@@ -1,7 +1,7 @@
-from python_client.openapi_client.api_client import ApiClient
-from python_client.openapi_client.api_client import ApiException
-from python_client.openapi_client.api.login_api import LoginApi
-from python_client.openapi_client.model.jwt_request import JwtRequest
+from python_client.disheap.openapi_client.api_client import ApiClient
+from python_client.disheap.openapi_client.api_client import ApiException
+from python_client.disheap.openapi_client.api.service.login_api import LoginApi
+from python_client.disheap.openapi_client.model.jwt_request import JwtRequest
 
 
 class LoginRepository:

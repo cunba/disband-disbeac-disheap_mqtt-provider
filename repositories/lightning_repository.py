@@ -1,7 +1,7 @@
 import pprint
-from python_client.openapi_client.api_client import ApiClient
-from python_client.openapi_client.api_client import ApiException
-from python_client.openapi_client.api.lightnings_api import LightningsApi
+from python_client.disband.openapi_client.api_client import ApiClient
+from python_client.disband.openapi_client.api_client import ApiException
+from python_client.disband.openapi_client.api.service.lightnings_api import LightningsApi
 
 
 class LightningRepository:

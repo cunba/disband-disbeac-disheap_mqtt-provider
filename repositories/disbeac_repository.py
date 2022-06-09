@@ -1,7 +1,7 @@
 import pprint
-from python_client.openapi_client.api_client import ApiClient
-from python_client.openapi_client.api_client import ApiException
-from python_client.openapi_client.api.disbeacs_api import DisbeacsApi
+from python_client.disbeac.openapi_client.api_client import ApiClient
+from python_client.disbeac.openapi_client.api_client import ApiException
+from python_client.disbeac.openapi_client.api.service.disbeacs_api import DisbeacsApi
 
 
 class DisbeacRepository:

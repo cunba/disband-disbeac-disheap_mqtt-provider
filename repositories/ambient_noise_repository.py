@@ -1,7 +1,7 @@
 import pprint
-from python_client import ApiClient
-from python_client import ApiException
-from python_client import AmbientNoisesApi
+from python_client.disband.openapi_client import ApiClient
+from python_client.disband.openapi_client import ApiException
+from python_client.disband.openapi_client.api.service.ambient_noises_api import AmbientNoisesApi
 
 
 class AmbientNoiseRepository:
